@@ -52,14 +52,14 @@ export function Hero() {
 
           <Reveal delay={200} className="flex flex-wrap gap-3 lg:justify-end">
             <a
-              href="#cta"
+              href="/demo"
               className="group inline-flex items-center gap-2 bg-foreground px-6 py-3.5 text-[15px] font-medium text-background transition-colors hover:bg-primary"
             >
               See Flowra in action
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
-              href="#system"
+              href="/platform"
               className="inline-flex items-center gap-2 border border-foreground/25 px-6 py-3.5 text-[15px] font-medium text-foreground transition-colors hover:border-foreground"
             >
               Explore the system

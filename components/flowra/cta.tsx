@@ -37,14 +37,14 @@ export function CTA() {
           </Reveal>
           <Reveal delay={200} className="mt-10 flex flex-wrap justify-center gap-3">
             <a
-              href="#top"
+              href="/demo"
               className="group inline-flex items-center gap-2 bg-foreground px-7 py-4 text-[15px] font-medium text-background transition-colors hover:bg-primary"
             >
               See Flowra in action
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
-              href="#system"
+              href="/platform"
               className="inline-flex items-center gap-2 border border-foreground/25 px-7 py-4 text-[15px] font-medium text-foreground transition-colors hover:border-foreground"
             >
               Explore the system

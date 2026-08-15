@@ -31,7 +31,7 @@ export function Footer() {
               understanding. Every understanding becomes a better outcome.
             </p>
             <a
-              href="#cta"
+              href="/demo"
               className="mt-8 inline-flex items-center gap-2 border border-paper/25 px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition-colors hover:bg-paper hover:text-ink"
             >
               See Flowra in action
@@ -47,7 +47,7 @@ export function Footer() {
                 <ul className="mt-5 space-y-3">
                   {col.links.map((link) => (
                     <li key={link}>
-                      <a href="#" className="text-sm text-paper/75 transition-colors hover:text-paper">
+                      <a href="/platform" className="text-sm text-paper/75 transition-colors hover:text-paper">
                         {link}
                       </a>
                     </li>
@@ -61,9 +61,9 @@ export function Footer() {
         <div className="mt-20 flex flex-col gap-4 border-t border-paper/12 pt-8 font-mono text-[11px] uppercase tracking-[0.16em] text-paper/45 sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} Flowra — Business intelligence infrastructure</span>
           <div className="flex gap-6">
-            <a href="#" className="transition-colors hover:text-paper">Privacy</a>
-            <a href="#" className="transition-colors hover:text-paper">Terms</a>
-            <a href="#" className="transition-colors hover:text-paper">Status</a>
+            <a href="/contact" className="transition-colors hover:text-paper">Privacy</a>
+            <a href="/contact" className="transition-colors hover:text-paper">Terms</a>
+            <a href="/contact" className="transition-colors hover:text-paper">Status</a>
           </div>
         </div>
       </Section>

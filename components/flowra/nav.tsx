@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react'
 import { ArrowRight, Menu, X } from 'lucide-react'
 
 const LINKS = [
-  { label: 'The system', href: '#system' },
-  { label: 'Intelligence', href: '#intelligence' },
-  { label: 'Industries', href: '#industries' },
-  { label: 'Case studies', href: '#cases' },
+  { label: 'The system', href: '/platform' },
+  { label: 'Intelligence', href: '/platform#intelligence' },
+  { label: 'Industries', href: '/platform#channels' },
+  { label: 'Case studies', href: '/#cases' },
 ]
 
 export function Nav() {
@@ -28,7 +28,7 @@ export function Nav() {
       }`}
     >
       <div className="mx-auto flex h-16 w-full max-w-[1240px] items-center justify-between px-6 md:px-10 lg:px-16">
-        <a href="#top" className="font-display text-[15px] font-semibold tracking-[0.34em] text-foreground">
+        <a href="/" className="font-display text-[15px] font-semibold tracking-[0.34em] text-foreground">
           FLOWRA
         </a>
 
@@ -46,7 +46,7 @@ export function Nav() {
 
         <div className="hidden md:block">
           <a
-            href="#cta"
+            href="/demo"
             className="group inline-flex items-center gap-2 border border-foreground bg-foreground px-4 py-2 text-[13px] font-medium text-background transition-colors hover:bg-transparent hover:text-foreground"
           >
             See Flowra in action
@@ -78,7 +78,7 @@ export function Nav() {
               </a>
             ))}
             <a
-              href="#cta"
+              href="/demo"
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center gap-2 bg-foreground px-4 py-3 text-sm font-medium text-background"
             >
