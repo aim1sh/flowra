@@ -1,0 +1,167 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Flowra extended palette */
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-sage: var(--sage);
+  --color-sage-deep: var(--sage-deep);
+  --color-clay: var(--clay);
+  --color-stone: var(--stone);
+  --color-beige: var(--beige);
+  --color-hairline: var(--hairline);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-inter), sans-serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
+}
+
+:root {
+  color-scheme: light;
+
+  /* Warm paper / ink / muted deep green editorial system */
+  --paper: oklch(0.965 0.009 92);
+  --ink: oklch(0.205 0.012 68);
+  --sage: oklch(0.44 0.055 158);
+  --sage-deep: oklch(0.34 0.05 160);
+  --clay: oklch(0.62 0.088 52);
+  --stone: oklch(0.72 0.012 78);
+  --beige: oklch(0.915 0.012 88);
+  --hairline: oklch(0.84 0.012 82);
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: oklch(0.985 0.006 92);
+  --card-foreground: var(--ink);
+  --popover: oklch(0.985 0.006 92);
+  --popover-foreground: var(--ink);
+  --primary: var(--sage);
+  --primary-foreground: oklch(0.97 0.01 92);
+  --secondary: var(--beige);
+  --secondary-foreground: var(--ink);
+  --muted: var(--beige);
+  --muted-foreground: oklch(0.47 0.014 72);
+  --accent: var(--clay);
+  --accent-foreground: oklch(0.97 0.01 92);
+  --destructive: oklch(0.55 0.2 27);
+  --border: var(--hairline);
+  --input: var(--hairline);
+  --ring: var(--sage);
+  --radius: 0.25rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply bg-background;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  ::selection {
+    background: var(--sage);
+    color: var(--primary-foreground);
+  }
+}
+
+@layer utilities {
+  /* Subtle paper grain */
+  .paper-grain {
+    position: relative;
+  }
+  .paper-grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  .surface-ink {
+    background: var(--ink);
+    color: var(--paper);
+    --border: oklch(1 0 0 / 0.12);
+    --muted-foreground: oklch(0.72 0.01 80);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* Animated flow dash for connector lines */
+  @keyframes flow-dash {
+    to {
+      stroke-dashoffset: -1000;
+    }
+  }
+  .flow-line {
+    stroke-dasharray: 6 8;
+    animation: flow-dash 24s linear infinite;
+  }
+
+  @keyframes pulse-node {
+    0%, 100% { opacity: 0.35; }
+    50% { opacity: 1; }
+  }
+  .pulse-node {
+    animation: pulse-node 3.2s ease-in-out infinite;
+  }
+}
